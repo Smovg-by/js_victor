@@ -169,12 +169,13 @@ console.log(scoresSum)
 // значением которых является массив ИМЕН всех остальных студентов, за исключением имени
 // самого студента
 
-const addFriends = students => {
-  let studentsWithFriends = students.map(item => {
-    let tempName = item.name
-    return { ...item, friends: students.filter(item => item.name !== tempName) }
+const addFriends = (students) => {
+  return students.map(st => {
+    return {
+      ...st,
+      friends: students.map(st => st.name).filter(name => name !== st.name)
+    }
   })
-  return studentsWithFriends
 }
 
 console.log(addFriends(students))
